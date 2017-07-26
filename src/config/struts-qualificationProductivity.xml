@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="approval" namespace="/" extends="json-default,default">
+    	
+    	<!-- 国家审批 -->
+    	<action name="countryApprovalAction_*" class="com.tj.jst.inner.qualificationProductivity.countryApproval.action.CountryApprovalAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/countryApproval/list.jsp</result>
+            <result name="approvalPage">/WEB-INF/content/inner/qualificationProductivity/countryApproval/approval.jsp</result>
+            <result name="deliveryPage">/WEB-INF/content/inner/qualificationProductivity/countryApproval/delivery.jsp</result>
+            <result name="ultimateApproval">/WEB-INF/content/inner/qualificationProductivity/countryApproval/ultimateApproval.jsp</result>
+            <result name="query" type="redirect">countryApprovalAction_queryPage.action</result>
+        	<result name="approvalLevelPage">/WEB-INF/content/inner/qualificationProductivity/countryApproval/approvalLevel.jsp</result>
+            <result name="deliveryLevelPage">/WEB-INF/content/inner/qualificationProductivity/countryApproval/deliveryLevel.jsp</result>
+            <result name="ultimateApprovalLevelPage">/WEB-INF/content/inner/qualificationProductivity/countryApproval/ultimateApprovalLevel.jsp</result>
+        
+        </action>
+    	
+    	<!-- 省级审批 -->
+    	<action name="provinceApprovalAction_*" class="com.tj.jst.inner.qualificationProductivity.provinceApproval.action.ProvinceApprovalAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/provinceApproval/list.jsp</result>
+            <result name="approvalPage">/WEB-INF/content/inner/qualificationProductivity/provinceApproval/approval.jsp</result>
+            <result name="deliveryPage">/WEB-INF/content/inner/qualificationProductivity/provinceApproval/delivery.jsp</result>
+            <result name="ultimateApproval">/WEB-INF/content/inner/qualificationProductivity/provinceApproval/ultimateApproval.jsp</result>
+            <result name="query" type="redirect">provinceApprovalAction_queryPage.action</result>
+            <result name="approvalLevelPage">/WEB-INF/content/inner/qualificationProductivity/provinceApproval/approvalLevel.jsp</result>
+            <result name="deliveryLevelPage">/WEB-INF/content/inner/qualificationProductivity/provinceApproval/deliveryLevel.jsp</result>
+            <result name="ultimateApprovalLevelPage">/WEB-INF/content/inner/qualificationProductivity/provinceApproval/ultimateApprovalLevel.jsp</result>
+        </action>
+        
+        <!-- 地市审批 -->
+    	<action name="cityApprovalAction_*" class="com.tj.jst.inner.qualificationProductivity.cityApproval.action.CityApprovalAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/cityApproval/list.jsp</result>
+            <result name="approvalPage">/WEB-INF/content/inner/qualificationProductivity/cityApproval/approval.jsp</result>
+            <result name="query" type="redirect">cityApprovalAction_queryPage.action</result>
+        	<result name="approvalLevelPage">/WEB-INF/content/inner/qualificationProductivity/cityApproval/approvalLevel.jsp</result>
+        </action>
+        
+        <!-- 二级审批 -->
+    	<action name="twoApprovalAction_*" class="com.tj.jst.inner.qualificationProductivity.twoApproval.action.TwoApprovalAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/twoApproval/list.jsp</result>
+            <result name="approvalPage">/WEB-INF/content/inner/qualificationProductivity/twoApproval/approval.jsp</result>
+            <result name="query" type="redirect">twoApprovalAction_queryPage.action</result>
+            <result name="approvalLevelPage">/WEB-INF/content/inner/qualificationProductivity/twoApproval/approvalLevel.jsp</result>
+        
+        </action>
+        
+        <!-- 企业信息 -->
+    	<action name="corpInfoAction_*" class="com.tj.jst.inner.notforeigninfo.action.CorpInfoAction" method="{1}">
+            <result name="queryCorpInfo">/WEB-INF/content/inner/corpinto/notforeigninfo/corpInfoList.jsp</result>
+            <result name="queryCorpDetail">/WEB-INF/content/inner/corpinto/notforeigninfo/corpDetailList.jsp</result>
+            <result name="corpAdd">/WEB-INF/content/inner/corpinto/notforeigninfo/corpInfoAdd.jsp</result>
+            <result name="corpModify">/WEB-INF/content/inner/corpinto/notforeigninfo/corpInfoModify.jsp</result>
+            <result name="corpDetail">/WEB-INF/content/inner/corpinto/notforeigninfo/corpInfoDetail.jsp</result>
+            <result name="corpModifyLimit">/WEB-INF/content/inner/corpinto/notforeigninfo/corpInfoModifyLimit.jsp</result>
+            <result name="modifyCorp" type="redirect">corpInfoAction_modifyCorp.action</result>
+            <result name="query" type="redirect">corpInfoAction_queryCorpInfo.action</result>
+        </action>
+        <!-- 注册建造师 -->
+    	<action name="queryConstructorAction_*" class="com.tj.jst.inner.qualificationProductivity.provinceApproval.action.QueryConstructorAction" method="{1}">
+            <result name="getConstructor">/WEB-INF/content/inner/qualificationProductivity/provinceApproval/getConstructor.jsp</result>
+        </action>
+        <!-- 岗位人员 -->
+		<action name="queryPositionsAction_*" class="com.tj.jst.inner.qualificationProductivity.provinceApproval.action.QueryPositionsAction" method="{1}">
+            <result name="getSomePositions">/WEB-INF/content/inner/qualificationProductivity/provinceApproval/getSomePositions.jsp</result>
+            <result name="getPositions">/WEB-INF/content/inner/qualificationProductivity/provinceApproval/getPositions.jsp</result>
+		</action>
+        <!-- 岗位人员查重 -->
+		<action name="queryPosNumAction_*" class="com.tj.jst.inner.qualificationProductivity.provinceApproval.action.QueryPosNumAction" method="{1}">
+            <result name="queryTitleNumPage">/WEB-INF/content/inner/qualificationProductivity/provinceApproval/getSameTitleperson.jsp</result>
+            <result name="querySkillworkerNumPage">/WEB-INF/content/inner/qualificationProductivity/provinceApproval/getSameSkillworker.jsp</result>
+		</action>
+        <!-- 技术工种 -->
+    	<action name="querySkilledworkerAction_*" class="com.tj.jst.inner.qualificationProductivity.provinceApproval.action.QuerySkilledworkerAction" method="{1}">
+            <result name="getSkilledworker">/WEB-INF/content/inner/qualificationProductivity/provinceApproval/getSkilledworker.jsp</result>
+        </action>
+        <!-- 技术工种查重 -->
+    	<action name="querySkillworkerNumAction_*" class="com.tj.jst.inner.qualificationProductivity.provinceApproval.action.QuerySkillworkerNumAction" method="{1}">
+            <result name="queryTitleNumPage">/WEB-INF/content/inner/qualificationProductivity/provinceApproval/getSameTitleperson.jsp</result>
+            <result name="queryPosNumPage">/WEB-INF/content/inner/qualificationProductivity/provinceApproval/getSamePosperson.jsp</result>
+        </action>
+        <!-- 职称人员 -->
+    	<action name="queryTitleAction_*" class="com.tj.jst.inner.qualificationProductivity.provinceApproval.action.QueryTitleAction" method="{1}">
+            <result name="getSkilledworker">/WEB-INF/content/inner/qualificationProductivity/provinceApproval/getTitle.jsp</result>
+        </action>
+        <!-- 职称人员查重 -->
+    	<action name="queryTitleNumAction_*" class="com.tj.jst.inner.qualificationProductivity.provinceApproval.action.QueryTitleNumAction" method="{1}">
+            <result name="querySkillworkerNumPage">/WEB-INF/content/inner/qualificationProductivity/provinceApproval/getSameSkillworker.jsp</result>
+            <result name="queryPosNumPage">/WEB-INF/content/inner/qualificationProductivity/provinceApproval/getSamePosperson.jsp</result>
+        </action>
+        <!-- 企业工程业绩 -->
+    	<action name="queryPerformanceAction_*" class="com.tj.jst.inner.qualificationProductivity.provinceApproval.action.QueryPerformanceAction" method="{1}">
+            <result name="getPerformance">/WEB-INF/content/inner/qualificationProductivity/provinceApproval/getPerformance.jsp</result>
+        </action>
+        
+        <!-- 历史企业资质初审审批查询-->
+        <action name="twoQueryAction_*" class="com.tj.jst.inner.qualificationProductivity.twoQuery.action.TwoQueryAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/twoQuery/list.jsp</result>
+            <result name="infoPage">/WEB-INF/content/inner/qualificationProductivity/twoQuery/info.jsp</result>
+            <result name="query" type="redirect">twoQueryAction_queryPage.action</result>
+        </action>
+        
+        <!-- 历史企业资质终审审批查询-->
+        <action name="queryApplicationHistoryAction_*" class="com.tj.jst.inner.qualificationProductivity.queryapplicationhistory.action.QueryApplicationHistoryAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/queryapplictionhistory/list.jsp</result>
+            <result name="infoPage">/WEB-INF/content/inner/qualificationProductivity/queryapplictionhistory/info.jsp</result>
+            <result name="infoUpdatePage">/WEB-INF/content/inner/qualificationProductivity/queryapplictionhistory/infoUpdate.jsp</result>
+            <result name="query" type="redirect">queryApplicationHistoryAction_queryPage.action</result>
+        </action>
+        
+        <!-- 所有审批信息查询-->
+        <action name="queryAllApplicationAction_*" class="com.tj.jst.inner.qualificationProductivity.queryAllApplication.action.QueryAllApplicationAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/queryallapplication/list.jsp</result>
+            <result name="infoPage">/WEB-INF/content/inner/qualificationProductivity/queryallapplication/info.jsp</result>
+            <result name="infoUpdatePage">/WEB-INF/content/inner/qualificationProductivity/queryallapplication/infoUpdate.jsp</result>
+            <result name="query" type="redirect">queryAllApplicationAction_queryPage.action</result>
+        </action>
+        
+        
+         <!-- 资质分类查询-->
+        <action name="queryCorpAction_*" class="com.tj.jst.inner.qualificationProductivity.queryCorp.action.QueryCorpAction" method="{1}">
+            <result name="basicpage">/WEB-INF/content/inner/qualificationProductivity/queryCorp/queryCorpPage.jsp</result>
+            <result name="querycorppage">/WEB-INF/content/inner/qualificationProductivity/queryCorp/queryCorpPage.jsp</result>
+            <!-- 返回json类型数据 -->
+			<!-- result是action中设置的变量名，也是页面需要返回的数据，该变量必须有setter和getter方法 -->
+            <result name="success" type="json">
+			    <param name="root">result</param>
+			</result>
+            </action>
+        <!-- 资质查询-->
+        <action name="queryCretAction_*" class="com.tj.jst.inner.qualificationProductivity.queryCorp.action.QueryCretAction" method="{1}">
+            <result name="certifiedServicePage">/WEB-INF/content/inner/qualificationProductivity/queryCorp/getCretInfo.jsp</result>
+        </action>
+        <!-- 企业提交资质申请查询-->
+        <action name="queryCorpApplyAction_*" class="com.tj.jst.inner.qualificationProductivity.queryCorp.action.QueryCorpApplyAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/queryCorp/getApplyInfo.jsp</result>
+        </action>
+        
+        <!-- 证照打印-->
+        <action name="certificatePrintAction_*" class="com.tj.jst.inner.qualificationProductivity.certificatePrint.action.CertificatePrintAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/certificatePrint/list.jsp</result>
+            <result name="query" type="redirect">certificatePrintAction_queryPage.action</result>
+       		<result name="print">/WEB-INF/content/inner/qualificationProductivity/certificatePrint/print.jsp</result>
+       		<result name="uploadPrint">/WEB-INF/content/inner/qualificationProductivity/certificatePrint/printUpload.jsp</result>
+        </action>
+        
+        <!-- 地市证照打印-->
+        <action name="cityCertificatePrintAction_*" class="com.tj.jst.inner.qualificationProductivity.certificatePrint.action.CityCertificatePrintAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/certificatePrint/cityList.jsp</result>
+            <result name="query" type="redirect">cityCertificatePrintAction_queryPage.action</result>
+            <result name="print">/WEB-INF/content/inner/qualificationProductivity/certificatePrint/cityPrint.jsp</result>
+            <result name="uploadPrint">/WEB-INF/content/inner/qualificationProductivity/certificatePrint/cityPrintUpload.jsp</result>
+        </action>
+        
+        <!-- 二维码测试-->
+        <action name="certificateHisPrintAction_*" class="com.tj.jst.inner.qualificationProductivity.certificatePrint.action.CertificateHisPrintAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/certificatePrint/qrcodeList.jsp</result>
+       		<result name="print">/WEB-INF/content/inner/qualificationProductivity/certificatePrint/qrcodePrint.jsp</result>
+        </action>
+        
+        
+        <!-- 国家级确认-->
+        <action name="countryCertificatePrintAction_*" class="com.tj.jst.inner.qualificationProductivity.certificatePrint.action.CountryCertificatePrintAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/certificatePrint/countryList.jsp</result>
+            <result name="confirmPage">/WEB-INF/content/inner/qualificationProductivity/certificatePrint/confirmPage.jsp</result>
+            <result name="confirm" type="redirect">countryCertificatePrintAction_queryPage.action</result>
+        </action>
+        <!-- 企业资质注销-->
+        <action name="writeOffAction_*" class="com.tj.jst.inner.qualificationProductivity.writeOff.action.WriteOffAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/writeOff/list.jsp</result>
+            <result name="floorQueryPage">/WEB-INF/content/inner/qualificationProductivity/floorWriteOff/list.jsp</result>
+            <result name="approvalPage">/WEB-INF/content/inner/qualificationProductivity/writeOff/approval.jsp</result>
+            <result name="floorApprovalPage">/WEB-INF/content/inner/qualificationProductivity/floorWriteOff/approval.jsp</result>
+            <result name="query" type="redirect">writeOffAction_queryPage.action</result>
+        </action>
+        <!-- 企业资质恢复-->
+        <action name="recoverAction_*" class="com.tj.jst.inner.qualificationProductivity.recover.action.RecoverAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/recover/list.jsp</result>
+            <result name="query" type="redirect">recoverAction_queryPage.action</result>
+        </action>
+        
+        <!-- 企业归属地变更-->
+        <action name="changeAreaAction_*" class="com.tj.jst.inner.qualificationProductivity.changearea.action.ChangeAreaAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/changearea/list.jsp</result>
+            <result name="approvalPage">/WEB-INF/content/inner/qualificationProductivity/changearea/info.jsp</result>
+            <result name="query" type="redirect">changeAreaAction_queryPage.action</result>
+        </action>
+        
+        <!-- 企业归属地变更查询-->
+        <action name="queryChangeInfoAction_*" class="com.tj.jst.inner.qualificationProductivity.querychangeinfo.action.QueryChangeInfoAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/querychangeinfo/list.jsp</result>
+            <result name="queryInfo">/WEB-INF/content/inner/qualificationProductivity/querychangeinfo/info.jsp</result>
+            <result name="query" type="redirect">queryChangeInfoAction_queryPage.action</result>
+        </action>
+        
+        
+        <!-- 内网更改企业归属地-->
+        <action name="innerChangeAreaAction_*" class="com.tj.jst.inner.qualificationProductivity.innerchangearea.action.InnerChangeAreaAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/innerchangearea/list.jsp</result>
+            <result name="changePage">/WEB-INF/content/inner/qualificationProductivity/innerchangearea/info.jsp</result>
+            <result name="query" type="redirect">innerChangeAreaAction_queryPage.action</result>
+        </action>
+        
+        <!-- 内网更改企业归属地历史查询-->
+        <action name="queryInnerChangeAreaAction_*" class="com.tj.jst.inner.qualificationProductivity.innerchangearea.action.QueryInnerChangeAreaAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/innerchangearea/history.jsp</result>
+            <result name="query" type="redirect">innerChangeAreaAction_queryPage.action</result>
+        </action>
+        
+        <!-- 大厅审批-->
+        <action name="floorApprovalAction_*" class="com.tj.jst.inner.qualificationProductivity.floorapproval.action.FloorApprovalAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/floorapproval/list.jsp</result>
+            <result name="queryInfoPage">/WEB-INF/content/inner/qualificationProductivity/floorapproval/approval.jsp</result>
+            <result name="queryPerchInfo">/WEB-INF/content/inner/qualificationProductivity/floorapproval/perchapproval.jsp</result>
+            <result name="successPage">/WEB-INF/content/inner/qualificationProductivity/floorapproval/success.jsp</result>
+            <result name="failPage">/WEB-INF/content/inner/qualificationProductivity/floorapproval/fail.jsp</result>
+            <result name="query" type="redirect">floorApprovalAction_queryPage.action</result>
+        </action>
+        
+        <!-- 大厅审批历史查询-->
+        <action name="queryFloorApprovalAction_*" class="com.tj.jst.inner.qualificationProductivity.queryfloorapproval.action.QueryFloorApprovalAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/queryfloorapproval/list.jsp</result>
+            <result name="queryInfoOne">/WEB-INF/content/inner/qualificationProductivity/queryfloorapproval/info.jsp</result>
+            <result name="queryInfoTwo">/WEB-INF/content/inner/qualificationProductivity/queryfloorapproval/infotwo.jsp</result>
+            <result name="query" type="redirect">queryFloorApprovalAction_queryPage.action</result>
+        </action>
+        
+        <!-- 大厅查询企业信息-->
+        <action name="floorQueryCorpAction_*" class="com.tj.jst.inner.qualificationProductivity.floorquerycorp.action.FloorQueryCorpAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/floorquerycorp/list.jsp</result>
+            <result name="queryInfo">/WEB-INF/content/inner/qualificationProductivity/floorquerycorp/info.jsp</result>
+            <result name="query" type="redirect">floorQueryCorpAction_queryPage.action</result>
+        </action>
+        
+        <!-- 大厅换证信息受理-->
+        <action name="changeCertAction_*" class="com.tj.jst.inner.qualificationProductivity.changecertaction.action.ChangeCertAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/changecert/list.jsp</result>
+            <result name="queryInfo">/WEB-INF/content/inner/qualificationProductivity/changecert/info.jsp</result>
+            <result name="query" type="redirect">changeCertAction_queryPage.action</result>
+        </action>
+        
+       <!-- 大厅分立/转移信息受理-->
+        <action name="floorSeparateQualificationAction_*" class="com.tj.jst.inner.qualificationProductivity.floorSeparateQualification.action.FloorSeparateQualificationAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/separateQualification/list.jsp</result>
+            <result name="queryInfo">/WEB-INF/content/inner/qualificationProductivity/separateQualification/info.jsp</result>
+            <result name="query" type="redirect">floorSeparateQualificationAction_queryPage.action</result>
+        </action>
+        
+       <!-- 大厅分立/转移信息受理历史查询-->
+        <action name="querySeparateQualificationAction_*" class="com.tj.jst.inner.qualificationProductivity.querySeparateQualification.action.QuerySeparateQualificationAction" method="{1}">
+             <result name="queryPage">/WEB-INF/content/inner/qualificationProductivity/querySeparateQualifiation/list.jsp</result>
+            <result name="infoPage">/WEB-INF/content/inner/qualificationProductivity/querySeparateQualifiation/info.jsp</result>
+            <result name="query" type="redirect">querySeparateQualificationAction_queryPage.action</result>
+        </action>
+        
+        <!-- 人员查询-->
+        <action name="queryPeopleAction_*" class="com.tj.jst.inner.qualificationProductivity.queryPeople.action.QueryPeopleAction" method="{1}">
+            <result name="queryIDCard">/WEB-INF/content/inner/qualificationProductivity/queryPeople/queryIdentity.jsp</result>
+            <result name="queryPeople">/WEB-INF/content/inner/qualificationProductivity/queryPeople/queryPeople.jsp</result>
+            <result name="query" type="redirect">queryPeopleAction_queryIDCard.action</result>
+        </action>
+        
+    </package>
+
+</struts>

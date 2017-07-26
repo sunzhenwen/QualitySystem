@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="corp" namespace="/" extends="json-default,default">
+    	
+    	<!-- 企业 -->
+    	<action name="corpAction_*" class="com.tj.jst.outside.corpinto.notforeign.action.CorpAction" method="{1}">
+            <result name="flowchart">/WEB-INF/content/outside/corpinto/notforeign/flowChart.jsp</result>
+            <result name="queryCorpNamePage">/WEB-INF/content/outside/corpinto/notforeign/queryCorpName.jsp</result>
+            <result name="corpAdd">/WEB-INF/content/outside/corpinto/notforeign/corpAdd.jsp</result>
+            <result name="corpModify">/WEB-INF/content/outside/corpinto/notforeign/corpModify.jsp</result>
+            <result name="corpModifyLimit">/WEB-INF/content/outside/corpinto/notforeign/corpModifyLimit.jsp</result>
+            <result name="outLogin">/WEB-INF/content/login.jsp</result>
+            <result name="addCorp">/WEB-INF/content/login.jsp</result>
+            <result name="modifyCorp">/WEB-INF/content/login.jsp</result>
+            <!-- 返回json类型数据 -->
+			<!-- result是action中设置的变量名，也是页面需要返回的数据，该变量必须有setter和getter方法 -->
+            <result name="success" type="json">
+			    <param name="root">result</param>
+			</result>
+        </action>
+        
+        <!-- 外商企业 -->
+        <action name = "foreignCorpAction_*" class = "com.tj.jst.outside.corpinto.foreign.action.ForeignCorpAction" method = "{1}">
+        	<result name = "foreignFlowChart">/WEB-INF/content/outside/corpinto/foreign/foreignFlowChart.jsp</result>
+        	<result name = "queryCorpNamePage">/WEB-INF/content/outside/corpinto/foreign/queryForeignCorpName.jsp</result>
+        	<result name = "foreignCorpAdd">/WEB-INF/content/outside/corpinto/foreign/foreignCorpAdd.jsp</result>
+        	<result name = "foreignCorpModify">/WEB-INF/content/outside/corpinto/foreign/foreignCorpModify.jsp</result>
+        	<result name = "addForeignCorp">/WEB-INF/content/login.jsp</result>
+        	<result name = "modifyForeignCorp">/WEB-INF/content/login.jsp</result>
+        	<result name = "outLogin">/WEB-INF/content/login.jsp</result>
+        	<!-- 返回json类型数据 -->
+			<!-- result是action中设置的变量名，也是页面需要返回的数据，该变量必须有setter和getter方法 -->
+            <result name="success" type="json">
+			    <param name="root">result</param>
+			</result>
+        </action>
+        
+        <!-- 企业工程业绩 -->
+    	<action name="performanceAction_*" class="com.tj.jst.outside.corpinto.performance.action.PerformanceAction" method="{1}">
+            <result name="querySuccess">/WEB-INF/content/outside/performance/performanceList.jsp</result>
+            <result name="addPage">/WEB-INF/content/outside/performance/performanceAdd.jsp</result>
+        	<result name="detailed">/WEB-INF/content/outside/performance/detailed.jsp</result>
+        	<result name="queryPage" type="redirect">performanceAction_queryPage.action</result>
+        	<result name="goBusiness">/WEB-INF/content/outside/business/business.jsp</result>
+        </action>
+        
+		<!-- 经过认证企业 -->
+    	<action name="certifiedCorpAction_*" class="com.tj.jst.inner.notforeign.action.CertifiedCorpAction" method="{1}">
+            <result name="certifiedCorpModify">/WEB-INF/content/inner/corpinto/notforeign/certifiedCorpModify.jsp</result>
+            <result name="certifiedCorpModifyTwo">/WEB-INF/content/inner/corpinto/notforeign/certifiedCorpModifyTwo.jsp</result>
+            <result name="goBusiness">/WEB-INF/content/outside/business/business.jsp</result>
+        </action>
+        
+        <!-- 经过认证的外商企业 -->
+    	<action name="certifiedForeignCorpAction_*" class="com.tj.jst.inner.foreign.action.CertifiedForeignCorpAction" method="{1}">
+            <result name="certifiedForeignCorpModify">/WEB-INF/content/inner/corpinto/foreign/certifiedForeignCorpModify.jsp</result>
+            <result name="goBusiness">/WEB-INF/content/outside/business/business.jsp</result>
+        </action>
+        
+    </package>
+    
+    <!-- 人员管理 -->
+    <package name="staff" namespace="/" extends="json-default,default">
+    	
+    	
+    	<!-- 注册建造师 -->
+		<action name="constructorAction_*" class="com.tj.jst.outside.staffmanage.constructor.action.ConstructorAction" method="{1}">
+            <result name="constructorSuccess">/WEB-INF/content/outside/staffmanage/constructor/constructorList.jsp</result>
+			<result name="goBusiness">/WEB-INF/content/outside/business/business.jsp</result>
+			<result name="detailed">/WEB-INF/content/outside/staffmanage/constructor/constructorDetailed.jsp</result>
+            <!-- <result name="goBusiness">/WEB-INF/content/outside/business/business.jsp</result> -->
+		</action>
+
+		<!-- 岗位人员 -->
+		<action name="positionsAction_*" class="com.tj.jst.outside.staffmanage.positions.action.PositionsAction" method="{1}">
+            <result name="positionsSuccess">/WEB-INF/content/outside/staffmanage/positions/positionsList.jsp</result>
+			<result name="goBusiness">/WEB-INF/content/outside/business/business.jsp</result>
+		</action>
+
+        <!-- 注册技术工种 -->
+        <action name="skilledworkerAction_*" class="com.tj.jst.outside.staffmanage.skilledworker.action.SkilledworkerAction" method="{1}">
+            <result name="skillworkerSuccess">/WEB-INF/content/outside/staffmanage/skilledworker/skilledworkerList.jsp</result>
+            <result name="addPage">/WEB-INF/content/outside/staffmanage/skilledworker/skilledworkerAdd.jsp</result>
+            <result name="modifyPage">/WEB-INF/content/outside/staffmanage/skilledworker/skilledworkerModify.jsp</result>
+            <result name="goBusiness">/WEB-INF/content/outside/business/business.jsp</result>
+            <result name="queryPage" type="redirect">skilledworkerAction_queryPage.action</result>
+        </action>
+
+        <!-- 职称人员 -->
+		<action name="titleAction_*" class="com.tj.jst.outside.staffmanage.title.action.TitleAction" method="{1}">
+            <result name="titleSuccess">/WEB-INF/content/outside/staffmanage/title/titleList.jsp</result>
+            <result name="addPage">/WEB-INF/content/outside/staffmanage/title/titleAdd.jsp</result>
+            <result name="modifyPage">/WEB-INF/content/outside/staffmanage/title/titleModify.jsp</result>
+            <result name="goBusiness">/WEB-INF/content/outside/business/business.jsp</result>
+            <result name="queryPage" type="redirect">titleAction_queryPage.action</result>
+        </action>
+
+    </package>
+
+	<!-- 业务办理 -->
+    <package name="business" namespace="/" extends="json-default,default">
+    	
+    	<!-- 资质新办/曾项 -->
+		<action name="newQualificationAction_*" class="com.tj.jst.outside.businessReport.newQualification.action.NewQualificationAction" method="{1}">
+            <result name="newApplicationPage">/WEB-INF/content/outside/business/newApplication.jsp</result>
+            <result name="certifiedServicePage">/WEB-INF/content/outside/businessReport/newQualification/certifiedServicePage.jsp</result>
+            <result name="goBusiness">/WEB-INF/content/outside/business/business.jsp</result>
+        </action>
+        
+        <!-- 资质变更 -->
+		<action name="qualityChangeAction_*" class="com.tj.jst.outside.businessReport.qualitychange.action.QualityChangeAction" method="{1}">
+            <result name="showQualityListPage">/WEB-INF/content/outside/businessReport/qualityChange/QualityListPage.jsp</result>
+            <result name="showQualityChangePage">/WEB-INF/content/outside/businessReport/qualityChange/QualityChangePage.jsp</result>
+            <result name="update_success" type="redirect">qualityChangePageAction_showQualityChangeInner.action</result>         
+            <result name="showQualityChangeDetailInner">/WEB-INF/content/outside/businessReport/qualityChange/QualityChangeDetail.jsp</result>
+            <result name="showQueryQualityChangeQueryInner">/WEB-INF/content/outside/businessReport/qualityChange/queryQualityChangeDetail.jsp</result>
+            <result name="corpQualityChangeListPage">/WEB-INF/content/outside/businessReport/qualityChange/queryCorpQualityChangeList.jsp</result>
+             <result name="showCorpQualityChangeDetail">/WEB-INF/content/outside/businessReport/qualityChange/CorpQualityChangeDetail.jsp</result>
+            <result name="goBusiness">/WEB-INF/content/outside/business/business.jsp</result>
+        </action>
+        <!-- 资质变更查询 分页 -->
+		<action name="queryQualityChangeAction_*" class="com.tj.jst.outside.businessReport.qualitychange.action.QueryQualityChangeAction" method="{1}">
+            <result name="showQualityChangeQueryInner">/WEB-INF/content/outside/businessReport/qualityChange/queryQualityChangeList.jsp</result>
+        </action>
+        
+        <!-- 资质变更 分页2 -->
+		<action name="qualityChangePageAction_*" class="com.tj.jst.outside.businessReport.qualitychange.action.QualityChangePageAction" method="{1}">
+            <result name="showQualityChangeInner">/WEB-INF/content/outside/businessReport/qualityChange/QualityChangeList.jsp</result>
+        </action>
+        
+        <!-- 资质升级 -->
+        <action name="updateQualificationAction_*" class="com.tj.jst.outside.businessReport.updateQualification.action.UpdateQualificationAction" method="{1}">
+            <result name="updateApplicationPage">/WEB-INF/content/outside/business/updateApplication.jsp</result>
+            <result name="certifiedServicePage">/WEB-INF/content/outside/businessReport/updateQualification/certifiedServicePage.jsp</result>
+            <result name="goBusiness">/WEB-INF/content/outside/business/business.jsp</result>
+        </action>
+        
+        <!-- 资质就位 -->
+		<action name="perchQualificationAction_*" class="com.tj.jst.outside.businessReport.perchQualification.action.PerchQualificationAction" method="{1}">
+            <result name="perchApplicationPage">/WEB-INF/content/outside/business/perchApplication.jsp</result>
+            <result name="certifiedServicePage">/WEB-INF/content/outside/businessReport/perchQualification/certifiedServicePage.jsp</result>
+            <result name="goBusiness">/WEB-INF/content/outside/business/business.jsp</result>
+        </action>
+        
+        <!-- 资质分立/转移 -->
+		<action name="separateQualificationAction_*" class="com.tj.jst.outside.businessReport.separateQualification.action.SeparateQualificationAction" method="{1}">
+            <result name="queryCorp">/WEB-INF/content/outside/businessReport/separateQualification/nameSearchPage.jsp</result>
+            <result name="queryCorpQualification">/WEB-INF/content/outside/businessReport/separateQualification/qualificationPage.jsp</result>
+            <result name="goBusiness">/WEB-INF/content/outside/business/business.jsp</result>
+        </action>
+        
+        <!-- 企业所拥有资质查询 -->
+		<action name="queryQualificationAction_*" class="com.tj.jst.outside.businessReport.queryQualification.action.QueryQualificationAction" method="{1}">
+            <result name="queryApplicationPage">/WEB-INF/content/outside/businessReport/queryQualification/certifiedDetailInfoPage.jsp</result>
+            <result name="detailCretPage">/WEB-INF/content/outside/businessReport/queryQualification/detailCretPage.jsp</result>
+            <result name="queryApplicationListPage">/WEB-INF/content/outside/businessReport/queryQualification/certifiedDetailInfoList.jsp</result>
+            <result name="goBusiness">/WEB-INF/content/outside/business/business.jsp</result>
+        </action>
+        
+        <!-- 企业资质审批状态查询 -->
+		<action name="queryQualificationInfoAction_*" class="com.tj.jst.outside.businessReport.queryQualificationInfo.action.QueryQualificationInfoAction" method="{1}">
+            <result name="queryApplicationPage">/WEB-INF/content/outside/businessReport/queryQualificationInfo/certifiedDetailInfoPage.jsp</result>
+            <result name="queryApplicationListPage">/WEB-INF/content/outside/businessReport/queryQualificationInfo/certifiedDetailInfoList.jsp</result>
+            <result name="goBusiness">/WEB-INF/content/outside/business/business.jsp</result>
+        </action>
+        
+        <!-- 企业资质注销申请 -->
+		<action name="writeOffApprovalAction_*" class="com.tj.jst.outside.businessReport.writeOffApproval.action.WriteOffApprovalAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/outside/businessReport/writeOffApproval/list.jsp</result>
+        	<result name="goBusiness">/WEB-INF/content/outside/business/business.jsp</result>
+        	<result name="query" type="redirect">writeOffApprovalAction_queryPage.action</result>
+        </action>
+        
+        <!-- 企业资质注销查询 -->
+		<action name="queryWriteOffTypeAction_*" class="com.tj.jst.outside.businessReport.queryWriteOffType.action.QueryWriteOffTypeAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/outside/businessReport/queryWriteOffType/list.jsp</result>
+        	<result name="goBusiness">/WEB-INF/content/outside/business/business.jsp</result>
+        	<result name="query" type="redirect">queryWriteOffTypeAction_queryPage.action</result>
+        </action>
+        
+        <!-- 企业归属地变更 -->
+		<action name="corpChangeAreaAction_*" class="com.tj.jst.outside.businessReport.corpchangearea.action.CorpChangeAreaAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/outside/businessReport/corpchangearea/info.jsp</result>
+        	<result name="query">/WEB-INF/content/outside/business/business.jsp</result>
+        	 <!-- 返回json类型数据 -->
+			<!-- result是action中设置的变量名，也是页面需要返回的数据，该变量必须有setter和getter方法 -->
+            <result name="success" type="json">
+			    <param name="root">result</param>
+			</result>
+        </action>
+        
+        <!-- 企业归属地变更查询 -->
+		<action name="queryCorpChangeAreaAction_*" class="com.tj.jst.outside.businessReport.querycorpchangearea.action.QueryCorpChangeAreaAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/outside/businessReport/querycorpchangearea/info.jsp</result>
+            <result name="query" type="redirect">queryCorpChangeAreaAction_queryPage.action</result>
+        	<result name="business">/WEB-INF/content/outside/business/business.jsp</result>
+        </action>
+        
+    </package>
+
+</struts>

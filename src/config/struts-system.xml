@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="system" namespace="/" extends="json-default,default">
+    	
+    	<!-- 资质服务事项维护 -->
+    	<action name="certifiedService_*" class="com.tj.jst.inner.system.servicecertdetailinfo.action.CertifiedServiceAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/system/servicecertdetailinfo/certdetailList.jsp</result>
+            <result name="addPage">/WEB-INF/content/inner/system/servicecertdetailinfo/certdetailAdd.jsp</result>
+            <result name="modifyPage">/WEB-INF/content/inner/system/servicecertdetailinfo/certdetailModify.jsp</result>
+            <result name="query" type="redirect">certifiedService_queryPage.action</result>
+            <!-- 返回json类型数据 -->
+			<!-- result是action中设置的变量名，也是页面需要返回的数据，该变量必须有setter和getter方法 -->
+            <result name="success" type="json">
+			    <param name="root">result</param>
+			</result>
+        </action>
+        
+    	<!-- 企业已有资质打回 -->
+    	<action name="qualificationRevocationAction_*" class="com.tj.jst.inner.system.qualificationRevocation.action.QualificationRevocationAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/system/qualificationRevocation/list.jsp</result>
+            <result name="revocationPage">/WEB-INF/content/inner/system/qualificationRevocation/revocation.jsp</result>
+            <result name="query" type="redirect">qualificationRevocationAction_queryPage.action</result>
+        </action>
+        
+    	<!-- 企业已有资质打回历史 -->
+    	<action name="revocationHistoryAction_*" class="com.tj.jst.inner.system.qualificationRevocation.action.RevocationHistoryAction" method="{1}">
+            <result name="revocationHistoryPage">/WEB-INF/content/inner/system/qualificationRevocation/revocationHistoryPage.jsp</result>
+            <result name="historyList">/WEB-INF/content/inner/system/qualificationRevocation/historyList.jsp</result>
+            <result name="query" type="redirect">qualificationRevocationAction_queryPage.action</result>
+        </action>
+        
+        <!-- 资质服务事项维护 -->
+    	<action name="modifyQualificationAction_*" class="com.tj.jst.inner.system.modifyQualification.action.ModifyQualificationAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/system/modifyQualification/list.jsp</result>
+            <result name="modifyPage">/WEB-INF/content/inner/system/modifyQualification/modifyApplication.jsp</result>
+            <result name="query" type="redirect">modifyQualificationAction_queryPage.action</result>
+            <!-- 返回json类型数据 -->
+			<!-- result是action中设置的变量名，也是页面需要返回的数据，该变量必须有setter和getter方法 -->
+            <result name="success" type="json">
+			    <param name="root">result</param>
+			</result>
+        </action>
+        
+        <!-- 统计 -->
+    	<action name="statisticsAction_*" class="com.tj.jst.inner.system.statistics.action.StatisticsAction" method="{1}">
+            <result name="queryPage">/WEB-INF/content/inner/system/statistics/statistics.jsp</result>
+        </action>
+        
+    </package>
+
+</struts>
