@@ -1,0 +1,61 @@
+package com.tj.jst.outside.businessReport.queryQualification.dao;
+
+import java.util.List;
+
+import com.tj.jst.base.page.Condition;
+import com.tj.jst.base.page.Page;
+import com.tj.jst.base.util.dictionary.DictionaryClass;
+import com.tj.jst.outside.businessReport.queryQualification.model.Qualification;
+
+/**
+ * 企业资质查询
+ * 
+ * @author DarkFlameMaster
+ *
+ */
+public interface IQueryQualificationDao {
+
+	/**
+	 * 查询国家级别资质
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public Page queryCertifiedService(Condition condition);
+
+	/**
+	 * 资质资格类型查询
+	 * 
+	 * @return
+	 */
+	public List<DictionaryClass> CertTypeNums();
+
+	/**
+	 * 资质资格等级查询
+	 * 
+	 * @return
+	 */
+	public List<DictionaryClass> TitleLevelNums();
+
+	/**
+	 * 资质资格获取方式查询
+	 * 
+	 * @return
+	 */
+	public List<DictionaryClass> AddTypeNums();
+
+	/**
+	 * 专业类别查询
+	 * 
+	 * @return
+	 */
+	public List<DictionaryClass> TradeBoundNums();
+
+	/**
+	 * 通过id来寻找企业资质详细信息
+	 * 
+	 * @param CertDetailId
+	 * @return
+	 */
+	public Qualification queryById(String CertDetailId);
+}
